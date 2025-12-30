@@ -1,9 +1,8 @@
 const socketIo = require("socket.io");
+const Question = require("./models/Question");
 
 module.exports = (server) => {
-  const io = socketIo(server, {
-    cors: { origin: "*" },
-  });
+  const io = socketIo(server, { cors: { origin: "*" } });
 
   io.on("connection", (socket) => {
     console.log("🟢 User connected");
@@ -16,12 +15,25 @@ module.exports = (server) => {
       socket.join(teamId);
     });
 
-    socket.on("submit_question", (data) => {
-      io.to(data.teamId).emit("question_added", data);
+    // 🔥 SUBMIT QUESTION
+    socket.on("submit_question", async (data) => {
+      const question = await Question.create({
+        question: data.question,
+        teamId: data.teamId,
+      });
+
+      io.to(data.teamId).emit("question_added", question);
     });
 
-    socket.on("upvote_question", (data) => {
-      io.to(data.teamId).emit("question_upvoted", data);
+    // 🔥 UPVOTE
+    socket.on("upvote_question", async (id) => {
+      const question = await Question.findByIdAndUpdate(
+        id,
+        { $inc: { upvotes: 1 } },
+        { new: true }
+      );
+
+      io.to(question.teamId.toString()).emit("question_upvoted", question);
     });
 
     socket.on("disconnect", () => {
@@ -29,6 +41,5 @@ module.exports = (server) => {
     });
   });
 
-  // make io available in routes
   global.io = io;
 };

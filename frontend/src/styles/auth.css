@@ -1,0 +1,134 @@
+/* =====================
+   AUTH PAGE WRAPPER
+===================== */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef4ff, #f9fbff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =====================
+   AUTH CARD
+===================== */
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 36px 32px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease;
+}
+
+/* =====================
+   TITLE
+===================== */
+.auth-container h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 26px;
+  color: #1a237e;
+}
+
+/* =====================
+   INPUTS & SELECT
+===================== */
+.auth-container input,
+.auth-container select {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 15px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.auth-container input:focus,
+.auth-container select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* =====================
+   PRIMARY BUTTON
+===================== */
+.auth-container button {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-container button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+}
+
+/* =====================
+   TEXT BELOW BUTTON
+===================== */
+.auth-container p {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #455a64;
+}
+
+/* =====================
+   LINK BUTTON (LOGIN / SIGNUP SWITCH)
+===================== */
+.link-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px;
+  background: #e3f2fd;
+  color: #1565c0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.link-btn:hover {
+  background: #bbdefb;
+}
+
+/* =====================
+   ANIMATION
+===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 28px 22px;
+  }
+
+  .auth-container h2 {
+    font-size: 22px;
+  }
+}

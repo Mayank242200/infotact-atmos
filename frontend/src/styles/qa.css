@@ -1,0 +1,45 @@
+.qa-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.qa-box input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.qa-box button {
+  padding: 12px 18px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.qa-box button:hover {
+  background: #1d4ed8;
+}
+
+.qa-item {
+  background: #eff6ff;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.upvote-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 16px;
+  cursor: pointer;
+}

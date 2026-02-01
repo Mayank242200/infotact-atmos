@@ -1,14 +1,14 @@
-# node
+# Node
 node_modules/
 
-# env
+# Env
 .env
 
-# build
+# Build
 dist/
 .vite/
 
-# logs
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
